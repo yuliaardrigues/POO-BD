@@ -2,7 +2,7 @@
 
 class PassageiroDAO{
     public function create(Passageiro $passageiro){
-        $sql = 'INSERT INTO tbl_passageiro (cpf, dataNascimento, nome, email, telefone) VALUES (?, ?, ?, ?, ?)';
+        $sql = 'INSERT INTO passageiro (cpf, dataNascimento, nome, email, telefone) VALUES (?, DATE(?), ?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $passageiro->getCpf());
         $stmt->bindValue(2,  $passageiro->getDataNascimento());
@@ -14,7 +14,7 @@ class PassageiroDAO{
     }
 
     public function read(){
-        $sql = 'SELECT * FROM tbl_passageiro';
+        $sql = 'SELECT * FROM passageiro';
 
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
@@ -28,7 +28,7 @@ class PassageiroDAO{
     }
 
     public function update(Passageiro $passageiro){
-        $sql = 'UPDATE tbl_passageiro SET cpf = ?, dataNascimento = ?, nome = ?, email = ?, telefone = ? WHERE idPassageiro = ?';
+        $sql = 'UPDATE passageiro SET cpf = ?, dataNascimento = DATE(?), nome = ?, email = ?, telefone = ? WHERE idPassageiro = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $passageiro->getCpf());
         $stmt->bindValue(2,  $passageiro->getDataNascimento());
@@ -42,7 +42,7 @@ class PassageiroDAO{
     }
 
     public function delete($id){
-        $sql = 'DELETE FROM tbl_passageiro WHERE idPassageiro = ?';
+        $sql = 'DELETE FROM passageiro WHERE idPassageiro = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $id);
 
