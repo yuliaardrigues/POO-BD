@@ -1,0 +1,47 @@
+<?php
+class aeportdao{
+    public function create (aeroporto $aeroporto) {
+        $sql = 'INSERT INTO aeroporto (idAeroporto, cidade, estado , cep,) VALUES (?,?,?,?)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $aeroporto->getIdAeroporto());
+        $stmt->bindValue(2, $aeroporto->getCidade());
+        $stmt->bindValue(3, $aeroporto->getEstado());
+        $stmt->bindValue(4, $aeroporto->getCep());
+
+
+        $stmt->execute();
+    }
+    public function read(){
+        $sql = 'SELECT * FROM aeroporto';
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0){
+            $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        }else{
+            return [];
+        }
+    }
+    
+    public function update(aeroporto $aeroporto){
+        $sql = 'UPDATE aeroporto SET idAeroporto = ?, cidade = ?, estado = ?, cep = ? WHERE idAeroporto = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $aeroporto->getIdAeroporto());
+        $stmt->bindValue(2,  $aeroporto->getCidade());
+        $stmt->bindValue(3, $aeroporto->getEstado());
+        $stmt->bindValue(4, $aeroporto->getCep());
+
+        $stmt->execute();
+
+    }
+    public function delete($idAeroporto){
+        $sql = 'DELETE FROM aeroporto WHERE idAeroporto = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $idAeroporto);
+
+        $stmt->execute();
+    }
+  
+}
