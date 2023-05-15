@@ -6,6 +6,17 @@ require_once "./model/Passageiro.php";
 require_once "./dao/PassagemDAO.php";
 require_once "./model/Passagem.php";
 
+require_once "./dao/aeroportodao.php";
+require_once "./model/aeroporto.php";
+
+
+$aeroporto = new aeroporto();
+$aeroportodao = new aeportdao();
+$aeroporto->setCidade("Juazeiro");
+$aeroporto->setEstado("ce");
+$aeroporto->setCep('631900000');
+
+$aeroportodao->create($aeroporto);
 
 // $passagem = new Passagem();
 // $passagemDAO = new PassagemDAO();
@@ -16,16 +27,16 @@ require_once "./model/Passagem.php";
 // $passagemDAO->create($passagem);
 
 
-$passageiroDAO = new PassageiroDAO();
-$passageiro = new Passageiro();
-$passageiro->setId(3);
-$passageiro->setCpf("09328329320");
-$passageiro->setDataNascimento('1990-09-14');
-$passageiro->setNome("Ana Lívia Alves");
-$passageiro->setEmail("laviaaraujo.dev@gmail.com");
-$passageiro->setTelefone("88992232345");
+// $passageiroDAO = new PassageiroDAO();
+// $passageiro = new Passageiro();
+// $passageiro->setId(3);
+// $passageiro->setCpf("09328329320");
+// $passageiro->setDataNascimento('1990-09-14');
+// $passageiro->setNome("Ana Lívia Alves");
+// $passageiro->setEmail("laviaaraujo.dev@gmail.com");
+// $passageiro->setTelefone("88992232345");
 
-$passageiroDAO->create($passageiro);
+// $passageiroDAO->create($passageiro);
 
 
 

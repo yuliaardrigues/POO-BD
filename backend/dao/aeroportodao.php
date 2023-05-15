@@ -1,12 +1,11 @@
 <?php
 class aeportdao{
     public function create (aeroporto $aeroporto) {
-        $sql = 'INSERT INTO aeroporto (idAeroporto, cidade, estado , cep,) VALUES (?,?,?,?)';
+        $sql = 'INSERT INTO aeroporto (cidade, estado , cep) VALUES (?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $aeroporto->getIdAeroporto());
-        $stmt->bindValue(2, $aeroporto->getCidade());
-        $stmt->bindValue(3, $aeroporto->getEstado());
-        $stmt->bindValue(4, $aeroporto->getCep());
+        $stmt->bindValue(1, $aeroporto->getCidade());
+        $stmt->bindValue(2, $aeroporto->getEstado());
+        $stmt->bindValue(3, $aeroporto->getCep());
 
 
         $stmt->execute();

@@ -25,7 +25,7 @@ class PassagemDAO{
         }
     }
 
-    public function update(Compra $compra){
+    public function update(Passagem $passagem){
        
     }
 
