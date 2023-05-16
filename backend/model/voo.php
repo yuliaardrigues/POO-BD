@@ -1,37 +1,52 @@
 <?php
-class voo{
+class Voo
+{
     private $idVoo;
     private $passagemDisponivel;
-    private $horariopartida;
+    private $horarioPartida;
     private $horarioChegada;
     private $idAeroporto;
     private $idAviao;
-    
-public function getidVoo(){
-    return $this->idVoo;
-}
-public function setidVoo($idVoo){
-    $this->idVoo = $idVoo;
-}
-public function getpassagemDisponivel(){
-    return $this->passagemDisponivel;
-}
-public function setpasaagemDisponivel ($passagemDisponivel){
-    $this->passagemDisponivel = $passagemDisponivel;
-}
 
-public function gethorariopartida(){
-    return $this->horariopartida;
-}
-public function sethorariopartida ($horariopartida){
-    $this->horariopartida = $horariopartida;
-}
-public function gethorarioChegada(){
-    return $this->horarioChegada;
-}
-public function sethorarioChegada ($horarioChegada){
-    $this->horarioChegada = $horarioChegada;
-}
+    public function getIdVoo()
+    {
+        return $this->idVoo;
+    }
+
+    public function setIdVoo($idVoo)
+    {
+        $this->idVoo = $idVoo;
+    }
+
+    public function getPassagemDisponivel()
+    {
+        return $this->passagemDisponivel;
+    }
+
+    public function setPasaagemDisponivel($passagemDisponivel)
+    {
+        $this->passagemDisponivel = $passagemDisponivel;
+    }
+
+    public function getHorarioPartida()
+    {
+        return $this->horarioPartida;
+    }
+
+    public function setHorarioPartida($horarioPartida)
+    {
+        $this->horarioPartida = $horarioPartida;
+    }
+
+    public function getHorarioChegada()
+    {
+        return $this->horarioChegada;
+    }
+
+    public function setHorarioChegada($horarioChegada)
+    {
+        $this->horarioChegada = $horarioChegada;
+    }
 
     public function getIdAeroporto()
     {
@@ -41,11 +56,9 @@ public function sethorarioChegada ($horarioChegada){
     public function setIdAeroporto($idAeroporto)
     {
         $this->idAeroporto = $idAeroporto;
-
-        return $this;
     }
 
-  
+
     public function getIdAviao()
     {
         return $this->idAviao;
@@ -55,7 +68,5 @@ public function sethorarioChegada ($horarioChegada){
     public function setIdAviao($idAviao)
     {
         $this->idAviao = $idAviao;
-
-        return $this;
     }
 }

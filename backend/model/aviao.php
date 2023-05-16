@@ -1,22 +1,18 @@
 <?php
-class aviao{
+class Aviao{
     private $idAviao;
     private $modelo;
     private $capacidade;
     private $fabricante;
-
-
-
     
-    public function getidAviao()
+    public function getIdAviao()
     {
         return $this->idAviao;
     }
-    public function setidAviao($idAviao)
+
+    public function setIdAviao($idAviao)
     {
         $this->idAviao = $idAviao;
-
-       
     }
 
     public function getModelo()
@@ -28,8 +24,6 @@ class aviao{
     public function setModelo($modelo)
     {
         $this->modelo = $modelo;
-
-        return $this;
     }
 
     
@@ -42,8 +36,6 @@ class aviao{
     public function setCapacidade($capacidade)
     {
         $this->capacidade = $capacidade;
-
-        return $this;
     }
 
   
@@ -55,8 +47,6 @@ class aviao{
     public function setFabricante($fabricante)
     {
         $this->fabricante = $fabricante;
-
-       
     }
 }
 ?>

@@ -1,15 +1,16 @@
 <?php
-class aeportdao{
-    public function create (aeroporto $aeroporto) {
-        $sql = 'INSERT INTO aeroporto (cidade, estado , cep) VALUES (?,?,?)';
+class AeroportoDAO{
+    public function create (Aeroporto $aeroporto) {
+        $sql = 'INSERT INTO aeroporto (nome, cidade, estado , cep) VALUES (?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $aeroporto->getCidade());
-        $stmt->bindValue(2, $aeroporto->getEstado());
-        $stmt->bindValue(3, $aeroporto->getCep());
-
+        $stmt->bindValue(1, $aeroporto->getNome());
+        $stmt->bindValue(2, $aeroporto->getCidade());
+        $stmt->bindValue(3, $aeroporto->getEstado());
+        $stmt->bindValue(4, $aeroporto->getCep());
 
         $stmt->execute();
     }
+
     public function read(){
         $sql = 'SELECT * FROM aeroporto';
 
@@ -24,17 +25,18 @@ class aeportdao{
         }
     }
     
-    public function update(aeroporto $aeroporto){
-        $sql = 'UPDATE aeroporto SET idAeroporto = ?, cidade = ?, estado = ?, cep = ? WHERE idAeroporto = ?';
+    public function update(Aeroporto $aeroporto){
+        $sql = 'UPDATE aeroporto SET  cidade = ?, estado = ?, cep = ? WHERE idAeroporto = ?';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $aeroporto->getIdAeroporto());
-        $stmt->bindValue(2,  $aeroporto->getCidade());
-        $stmt->bindValue(3, $aeroporto->getEstado());
-        $stmt->bindValue(4, $aeroporto->getCep());
+        $stmt->bindValue(1,  $aeroporto->getCidade());
+        $stmt->bindValue(2, $aeroporto->getEstado());
+        $stmt->bindValue(3, $aeroporto->getCep());
+        $stmt->bindValue(4, $aeroporto->getIdAeroporto());
 
         $stmt->execute();
 
     }
+
     public function delete($idAeroporto){
         $sql = 'DELETE FROM aeroporto WHERE idAeroporto = ?';
         $stmt = Conexao::getConn()->prepare($sql);

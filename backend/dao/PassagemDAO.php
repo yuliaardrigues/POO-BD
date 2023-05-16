@@ -3,10 +3,11 @@
 class PassagemDAO{
 
     public function create(Passagem $passagem){
-        $sql = 'INSERT INTO passagem (codigoAssento, idPassageiro) VALUES (?, ?)';
+        $sql = 'INSERT INTO passagem (codigoAssento, idVoo, idPassageiro) VALUES (?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $passagem->getCodigoAssento());
-        $stmt->bindValue(2, $passagem->getIdPassageiro());
+        $stmt->bindValue(2, $passagem->getIdVoo());
+        $stmt->bindValue(3, $passagem->getIdPassageiro());
 
         $stmt->execute();
     }
@@ -26,18 +27,24 @@ class PassagemDAO{
     }
 
     public function update(Passagem $passagem){
-       
+        $sql = 'UPDATE passagem SET codigoAssento = ?, idVoo = ?, idPassageiro = ? WHERE idPassagem = ?';
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $passagem->getCodigoAssento());
+        $stmt->bindValue(2, $passagem->getIdVoo());
+        $stmt->bindValue(3, $passagem->getIdPassageiro());
+        $stmt->bindValue(4, $passagem->getIdPassagem());
+
+        $stmt->execute();
     }
 
     public function delete($id){
-        $sql = 'DELETE FROM passagem WHERE idCompra = ?';
+        $sql = 'DELETE FROM passagem WHERE idPassagem = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $id);
 
         $stmt->execute();
     }
-
-
 
 }
 
