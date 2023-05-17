@@ -13,7 +13,7 @@
 <body>
   <h1 class="text-center" style="margin-top: 5%">Comprar passagens</h1>
 
-  <form class="d-flex flex-column mb-3" style="margin-left: 30%; margin-right: 35%;" method="POST" <div>
+  <form class="d-flex flex-column mb-3" style="margin-left: 30%; margin-right: 35%;" method="POST">
     <label for="exampleInputVoos" class="form-label">Voos Disponíveis</label>
     <select class="form-select" aria-label="select example" id="exampleInputVoosl" name="voo">
       <option selected></option>
@@ -100,6 +100,9 @@
 
   require_once "../backend/dao/PassageiroDAO.php";
   require_once "../backend/model/Passageiro.php";
+  require_once "../backend/dao/PassagemDAO.php";
+  require_once "../backend/model/Passagem.php";
+
   require_once "../backend/config/Conexao.php";
 
   $passageiro = new Passageiro();
@@ -125,6 +128,15 @@
       $passageiro->setTelefone($telefone);
 
       $passageiroDAO->create($passageiro);
+
+
+      $passagem = new Passagem();
+      $passagemDAO = new PassagemDAO();
+
+      $passagem->setIdVoo($idVoo);
+      $passagem->setIdPassageiro(1);
+
+      $passagemDAO->create($passagem);
     } else {
       echo "O campo 'teste' está vazio.";
     }
