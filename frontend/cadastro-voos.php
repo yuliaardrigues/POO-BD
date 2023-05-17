@@ -18,10 +18,10 @@
     <nav class="bg-primary mx-5 mt-5 py-1 pt-3 rounded-pill">
       <ul class="list-unstyled d-flex justify-content-around" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a href="./cadastro-aviao.html" class="text-decoration-none text-dark fs-3">Avião</a>
+          <a href="./cadastro-aviao.php" class="text-decoration-none text-dark fs-3">Avião</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a href="#" class="text-decoration-none text-dark fs-3">Aeroporto</a>
+          <a href="./cadastro-aeroporto.php" class="text-decoration-none text-dark fs-3">Aeroporto</a>
         </li>
         <li class="nav-item" role="presentation">
           <a href="#" class="text-decoration-none text-dark fs-3">Voo</a>

@@ -18,13 +18,13 @@
     <nav class="bg-primary mx-5 mt-5 py-1 pt-3 rounded-pill">
       <ul class="list-unstyled d-flex justify-content-around" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a href="./cadastro-aviao.html" class="text-decoration-none text-dark fs-3">Avião</a>
+          <a href="./cadastro-aviao.php" class="text-decoration-none text-dark fs-3">Avião</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a href="./cadastro-aeroporto.html" class="text-decoration-none text-dark fs-3">Aeroporto</a>
+          <a href="./cadastro-aeroporto.php" class="text-decoration-none text-dark fs-3">Aeroporto</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a href="./cadastro-voos.html" class="text-decoration-none text-dark fs-3">Voo</a>
+          <a href="./cadastro-voos.php" class="text-decoration-none text-dark fs-3">Voo</a>
         </li>
       </ul>
     </nav>
@@ -51,9 +51,6 @@
         </div>
 
         <div class="d-flex justify-content-end" style="margin-top: 5%">
-          <button type="button" class="btn btn-danger" style="margin-right: 3%">
-            cancelar
-          </button>
           <input type="submit" class="btn btn-success" value="salvar">
         </div>
       </form>
@@ -74,10 +71,7 @@
           $aviao->setCapacidade(intval($_POST['capacidade']));
           $aviao->setFabricante($_POST['fabricante']);
           $aviaodao->create($aviao);
-        } else {
-          echo "O campo 'teste' está vazio.";
         }
-        echo "O campo 'teste' está vazio.";
       }
 
       ?>
@@ -94,9 +88,10 @@
       $aviaodao = new AviaoDAO();
 
       foreach ($aviaodao->read() as $aviao) {
-        $capacidade = $aviao['capacidade'] . "<br/>";
-        $modelo = $aviao['modelo'] . "<br/>";
-        $fabricante = $aviao['fabricante'] . "<br/>";
+        $idAviao = $aviao['idAviao'];
+        $capacidade = $aviao['capacidade'];
+        $modelo = $aviao['modelo'];
+        $fabricante = $aviao['fabricante'];
         echo
         '<hr style="width: 60%; margin-left: 20%" />
     <div
@@ -107,7 +102,7 @@
         <p>' . $modelo . '</p>
       </div>
       <div>
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary" onclick="deletarAviao(' . $idAviao . ')">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -131,17 +126,35 @@
 
       ?>
       <hr style="width: 60%; margin-left: 20%" />
-
-      <div class="d-flex justify-content-end" style="margin-right: 20%">
-        <button class="btn btn-primary" style="width: 80px; height: 80px; border-radius: 100%">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
-            <path d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z" />
-            <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z" />
-          </svg>
-        </button>
-      </div>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    function deletarAviao(idAviao) {
+      // Variável JavaScript
+      console.log(idAviao)
+
+      // Enviar a variável para o PHP via AJAX
+      $.ajax({
+        url: 'deletarAviao.php',
+        type: 'POST',
+        data: {
+          idAviao: idAviao
+        },
+        success: function(response) {
+          // Callback de sucesso, pode tratar a resposta do PHP aqui
+          console.log(response);
+        },
+        error: function(xhr, status, error) {
+          // Callback de erro
+          console.error(error);
+        }
+      });
+    }
+  </script>
+
+
 </body>
 
 </html>

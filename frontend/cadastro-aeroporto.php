@@ -75,7 +75,7 @@
 
 
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (!empty($_POST['nomeAeroporto']) && !empty($_POST['cep']) > 0 && !empty($_POST['cidade']) > 0 && !empty($_POST['estado']) > 0) {
+        if (!empty($_POST['nomeAeroporto']) && !empty($_POST['cep']) && !empty($_POST['cidade']) && !empty($_POST['estado'])) {
           $valorTeste = $_POST['nomeAeroporto'];
           $aeroporto->setNome($_POST['nomeAeroporto']);
           $aeroporto->setCidade($_POST['cidade']);
@@ -117,7 +117,7 @@
             <p>' . $nome .' - ' . $cidade. ' - '. $estado. '</p>
           </div>
           <div>
-            <button type="button" class="btn btn-secondary" onclick="">
+            <button type="button" class="btn btn-secondary" onclick="deletarAeroporto('.$id.')">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -151,6 +151,28 @@
       </div>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    function deletarAeroporto(idAeroporto) {
+      $.ajax({
+        url: 'deletarAeroporto.php',
+        type: 'POST',
+        data: {
+          idAeroporto: idAeroporto
+        },
+        success: function(response) {
+          // Callback de sucesso, pode tratar a resposta do PHP aqui
+          console.log(response);
+        },
+        error: function(xhr, status, error) {
+          // Callback de erro
+          console.error(error);
+        }
+      });
+    }
+  </script>
+
    
 </body>
 
