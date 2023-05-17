@@ -5,7 +5,8 @@ class Voo
     private $passagemDisponivel;
     private $horarioPartida;
     private $horarioChegada;
-    private $idAeroporto;
+    private $idAeroportoChegada;
+    private $idAeroportoPartida;
     private $idAviao;
 
     public function getIdVoo()
@@ -48,16 +49,6 @@ class Voo
         $this->horarioChegada = $horarioChegada;
     }
 
-    public function getIdAeroporto()
-    {
-        return $this->idAeroporto;
-    }
-
-    public function setIdAeroporto($idAeroporto)
-    {
-        $this->idAeroporto = $idAeroporto;
-    }
-
 
     public function getIdAviao()
     {
@@ -68,5 +59,45 @@ class Voo
     public function setIdAviao($idAviao)
     {
         $this->idAviao = $idAviao;
+    }
+
+    /**
+     * Get the value of idAeroportoChegada
+     */ 
+    public function getIdAeroportoChegada()
+    {
+        return $this->idAeroportoChegada;
+    }
+
+    /**
+     * Set the value of idAeroportoChegada
+     *
+     * @return  self
+     */ 
+    public function setIdAeroportoChegada($idAeroportoChegada)
+    {
+        $this->idAeroportoChegada = $idAeroportoChegada;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idAeroportoPartida
+     */ 
+    public function getIdAeroportoPartida()
+    {
+        return $this->idAeroportoPartida;
+    }
+
+    /**
+     * Set the value of idAeroportoPartida
+     *
+     * @return  self
+     */ 
+    public function setIdAeroportoPartida($idAeroportoPartida)
+    {
+        $this->idAeroportoPartida = $idAeroportoPartida;
+
+        return $this;
     }
 }

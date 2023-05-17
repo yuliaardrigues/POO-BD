@@ -117,7 +117,7 @@
             <p>' . $nome .' - ' . $cidade. ' - '. $estado. '</p>
           </div>
           <div>
-            <button type="button" class="btn btn-secondary" onclick="'.$aeroportodao->delete(36).'">
+            <button type="button" class="btn btn-secondary" onclick="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -151,6 +151,7 @@
       </div>
     </div>
   </div>
+   
 </body>
 
 </html>

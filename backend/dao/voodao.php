@@ -1,14 +1,14 @@
 <?php
 class VooDAO {
     public function create (Voo $voo) {
-        $sql = 'INSERT INTO voo (idVoo, qtAssentos, horarioPartida, horarioChegada, idAeroporto, idAviao) VALUES (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO voo ( horarioPartida, horarioChegada, idAeroportoChegada, idAeroportoSaida, idAviao) VALUES (?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $voo->getIdVoo());
-        $stmt->bindValue(2, $voo->getPassagemDisponivel());
-        $stmt->bindValue(3, $voo->getHorarioPartida());
-        $stmt->bindValue(4, $voo->getHorarioChegada());
-        $stmt->bindValue(5, $voo->getIdAeroporto());
-        $stmt->bindValue(6, $voo->getIdAviao());
+        // $stmt->bindValue(1, $voo->getPassagemDisponivel());
+        $stmt->bindValue(1, $voo->getHorarioPartida());
+        $stmt->bindValue(2, $voo->getHorarioChegada());
+        $stmt->bindValue(3, $voo->getIdAeroportoChegada());
+        $stmt->bindValue(4, $voo->getIdAeroportoPartida());
+        $stmt->bindValue(5, $voo->getIdAviao());
 
         $stmt->execute();
     }
@@ -33,7 +33,6 @@ class VooDAO {
         $stmt->bindValue(1,  $voo->getPassagemDisponivel());
         $stmt->bindValue(2, $voo->getHorarioPartida());
         $stmt->bindValue(3, $voo->getHorarioChegada());
-        $stmt->bindValue(4, $voo->getIdAeroporto());
         $stmt->bindValue(5, $voo->getIdAviao());
         $stmt->bindValue(6, $voo->getIdVoo());
 
@@ -47,6 +46,19 @@ class VooDAO {
         $stmt->bindValue(1, $id);
 
         $stmt->execute();
+    }
+
+    public function readVoo($id){
+        $sql = 'SELECT * FROM voo WHERE '.$id.';';
+
+
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+       
+        $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $resultado;
     }
   
 }

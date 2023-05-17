@@ -44,5 +44,19 @@ class AeroportoDAO{
 
         $stmt->execute();
     }
+
+    public function readAeroporto($id){
+        $sql = 'SELECT * FROM aeroporto WHERE idAeroporto = '.$id.';';
+
+
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+       
+        $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+    
   
 }

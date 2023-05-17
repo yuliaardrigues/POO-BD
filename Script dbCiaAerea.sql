@@ -23,10 +23,10 @@ CREATE TABLE passagem (
 
 CREATE TABLE voo (
 	idVoo int not null primary key auto_increment,
-    qtAssentos int,
     horarioPartida varchar(8),
     horarioChegada varchar(8),
-    idAeroporto int,
+    idAeroportoChegada int
+    idAeroportoSaida int
     idAviao int
 );
 
