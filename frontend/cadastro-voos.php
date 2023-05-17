@@ -211,7 +211,7 @@
               <hr style="width: 60%; margin-left: 20%" />
               <div class="d-flex justify-content-between" style="margin-left: 20%; margin-right: 20%">
                 <div>
-                  <p>' . $nomeS . 'para ' . $nomeC . '</p>
+                  <p>' . $cidadeS . ' para ' . $cidadeC . '</p>
                 </div>
                 <div>
                   <button class="btn btn-secondary">

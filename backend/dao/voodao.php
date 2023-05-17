@@ -51,14 +51,14 @@ class VooDAO {
     public function readVoo($id){
         $sql = 'SELECT * FROM voo WHERE '.$id.';';
 
-
-
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 
        
-        $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $resultado;
+       
+            $resultado = $stmt->fetchAll();
+            return $resultado;
+        
     }
   
 }

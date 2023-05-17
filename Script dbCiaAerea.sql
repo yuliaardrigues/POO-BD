@@ -25,8 +25,8 @@ CREATE TABLE voo (
 	idVoo int not null primary key auto_increment,
     horarioPartida varchar(8),
     horarioChegada varchar(8),
-    idAeroportoChegada int
-    idAeroportoSaida int
+    idAeroportoChegada int,
+    idAeroportoSaida int,
     idAviao int
 );
 
@@ -55,8 +55,12 @@ ADD CONSTRAINT idPassageiro
 FOREIGN KEY (idPassageiro) REFERENCES passageiro(idPassageiro);
 
 ALTER TABLE voo
-ADD CONSTRAINT idAeroporto
-FOREIGN KEY (idAeroporto) REFERENCES aeroporto(idAeroporto);
+ADD CONSTRAINT idAeroportoChegada
+FOREIGN KEY (idAeroportoChegada) REFERENCES aeroporto(idAeroporto);
+
+ALTER TABLE voo
+ADD CONSTRAINT idAeroportoSaida
+FOREIGN KEY (idAeroportoSaida) REFERENCES aeroporto(idAeroporto);
 
 ALTER TABLE voo
 ADD CONSTRAINT idAviao

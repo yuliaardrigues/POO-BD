@@ -3,11 +3,10 @@
 class PassagemDAO{
 
     public function create(Passagem $passagem){
-        $sql = 'INSERT INTO passagem (codigoAssento, idVoo, idPassageiro) VALUES (?, ?, ?)';
+        $sql = 'INSERT INTO passagem (idVoo, idPassageiro) VALUES (?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $passagem->getCodigoAssento());
-        $stmt->bindValue(2, $passagem->getIdVoo());
-        $stmt->bindValue(3, $passagem->getIdPassageiro());
+        $stmt->bindValue(1, $passagem->getIdVoo());
+        $stmt->bindValue(2, $passagem->getIdPassageiro());
 
         $stmt->execute();
     }
