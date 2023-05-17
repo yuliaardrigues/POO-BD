@@ -16,7 +16,6 @@ CREATE TABLE passageiro (
 
 CREATE TABLE passagem (
 	idPassagem int not null primary key auto_increment,
-    codigoAssento varchar(20),
     idVoo int,
     idPassageiro int
 );
