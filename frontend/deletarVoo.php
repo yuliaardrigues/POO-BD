@@ -1,5 +1,4 @@
 <?php
-// Recuperar a variável enviada via POST
 $idVoo = $_POST['idVoo'];
 
 

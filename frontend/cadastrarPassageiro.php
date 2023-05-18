@@ -119,8 +119,7 @@
       $telefone = $_POST['telefone'];
 
       echo $voo;
-
-      // $passageiro->setId(3);
+      
       $passageiro->setCpf($cpf);
       $passageiro->setDataNascimento($data);
       $passageiro->setNome($nome);

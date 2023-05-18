@@ -132,10 +132,9 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript">
     function deletarAviao(idAviao) {
-      // Variável JavaScript
+
       console.log(idAviao)
 
-      // Enviar a variável para o PHP via AJAX
       $.ajax({
         url: 'deletarAviao.php',
         type: 'POST',
@@ -143,11 +142,9 @@
           idAviao: idAviao
         },
         success: function(response) {
-          // Callback de sucesso, pode tratar a resposta do PHP aqui
           console.log(response);
         },
         error: function(xhr, status, error) {
-          // Callback de erro
           console.error(error);
         }
       });

@@ -1,5 +1,5 @@
 <?php
-// Recuperar a variável enviada via POST
+
 $idAviao = $_POST['idAviao'];
 
 require_once "../backend/dao/AviaoDAO.php";
