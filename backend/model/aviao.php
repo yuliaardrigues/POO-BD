@@ -1,4 +1,6 @@
 <?php
+
+namespace model;
 class Aviao{
     private $idAviao;
     private $modelo;

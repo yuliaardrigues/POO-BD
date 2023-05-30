@@ -1,0 +1,24 @@
+{
+    "name": "test/phptest",
+    "description": "PHPUnit",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "model\\": "model/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "test",
+            "email": "test@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.1"
+    }
+}

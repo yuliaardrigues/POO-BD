@@ -1,5 +1,7 @@
 <?php
 
+namespace model;
+
 class Passageiro{
     private int $id;
     private string $cpf;
