@@ -3,7 +3,7 @@
         'name' => 'test/phptest',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd9e78e05aff09659656c7a87d14982d3a982aa3b',
+        'reference' => 'ce7a42d91c3c5050a6456bf545796080eef7f2bb',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -238,7 +238,7 @@
         'test/phptest' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd9e78e05aff09659656c7a87d14982d3a982aa3b',
+            'reference' => 'ce7a42d91c3c5050a6456bf545796080eef7f2bb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

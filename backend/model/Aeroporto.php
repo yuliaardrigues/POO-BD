@@ -1,4 +1,7 @@
 <?php
+
+namespace model;
+
 class Aeroporto{
     private $idAeroporto;
     private $nome;
