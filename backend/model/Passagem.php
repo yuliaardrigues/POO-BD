@@ -1,5 +1,7 @@
 <?php
 
+namespace model;
+
 class Passagem{
     private int $idPassagem;
     private int $codigoAssento;

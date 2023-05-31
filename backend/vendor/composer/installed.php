@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'test/phptest',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6ea9c4a0e4df596c5fda2c501e56fba5308088c6',
+        'reference' => 'd9e78e05aff09659656c7a87d14982d3a982aa3b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '6ea9c4a0e4df596c5fda2c501e56fba5308088c6',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'myclabs/deep-copy' => array(
             'pretty_version' => '1.11.1',
             'version' => '1.11.1.0',
@@ -243,6 +234,15 @@
             'install_path' => __DIR__ . '/../sebastian/version',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'test/phptest' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'd9e78e05aff09659656c7a87d14982d3a982aa3b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',
