@@ -15,14 +15,14 @@ require_once "./model/Aviao.php";
 require_once "./dao/voodao.php";
 require_once "./model/voo.php";
 
-// $voodao = new vooDAO();
-// $voo = new voo();
-// $voo->setpasaagemDisponivel(5);
-// $voo->sethorariopartida("20:20");
-// $voo->sethorarioChegada("01:60");
+ //$voodao = new vooDAO();
+ //$voo = new Voo();
+ //$voo->setpasaagemDisponivel(5);
+// $voo->sethorarioPartida("20:20");
+ //$voo->sethorarioChegada("01:60");
 // $voo->setIdAeroporto(1);
-// $voo->setIdAviao(1);
-// $voodao->create($voo);
+//$voo->setIdAviao(1);
+ //$voodao->create($voo);
 
 
 
